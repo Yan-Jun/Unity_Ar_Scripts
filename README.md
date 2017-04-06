@@ -9,7 +9,7 @@ CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSA
 CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_TRIGGERAUTO);
 
 條件式編譯 (Unity文件有說明這些變數是由哪種平台啟動)
-<img src="https://docs.unity3d.com/Manual/PlatformDependentCompilation.html" height="300" width="400">
+https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
 
 #if UNITY_EDITOR  // 由電腦為平台  	
 #elif UNITY_ANDROID || UNITY_IPHONE // 由手機為平台
