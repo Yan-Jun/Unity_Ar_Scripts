@@ -15,6 +15,42 @@ https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
 #elif UNITY_ANDROID || UNITY_IPHONE // 由手機為平台
 #endif
 
+```C#
+using UnityEngine;
+using System.Collections;
+using Vuforia;
+
+public class CameraFocusController : MonoBehaviour {
+
+	public static bool m_bIsFocus;
+
+	// Use this for initialization
+	void Start()
+	{
+		m_bIsFocus = false;
+		//CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
+		CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_TRIGGERAUTO);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		//if (m_bIsFocus)
+		#if UNITY_EDITOR
+			if(Input.GetMouseButtonUp(0))
+		#elif UNITY_ANDROID || UNITY_IPHONE
+			if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+		#endif
+		{
+			//CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
+			CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_TRIGGERAUTO);
+		}
+	}
+}
+
+
+```
+
 
 
 默認追蹤事件處理器 DefaultTrackableEventHandler.cs
@@ -25,4 +61,4 @@ private void OnTrackingFound()
 當沒追蹤到圖片要做什麼事?
 private void OnTrackingLost()
 
-所以在角本內建立一個 IsFinding 的布林變數，可以讓場景的其它物件知道，我的相機是追蹤中圖片。
+所以在角本內建立一個 IsFinding 的布林變數，可以讓場景的其它物件知道，我的相機是否追蹤中圖片。
