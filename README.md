@@ -62,3 +62,30 @@ private void OnTrackingFound()
 private void OnTrackingLost()
 
 所以在角本內建立一個 IsFinding 的布林變數，可以讓場景的其它物件知道，我的相機是否追蹤中圖片。
+
+
+虛擬按鈕 VirtualBtn.cs
+=================
+```C#
+
+// 虛擬按鈕
+public GameObject _vButton;
+
+// 按下事件
+public void OnButtonPressed(VirtualButtonAbstractBehaviour vb)
+{
+	Debug.Log("Pressed");
+}
+
+// 放開事件
+public void OnButtonReleased(VirtualButtonAbstractBehaviour vb)
+{
+	Debug.Log("Released");
+}
+
+void Start () {
+	// 註冊按鈕事件
+	_vButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
+}
+
+```
