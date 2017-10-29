@@ -89,3 +89,40 @@ void Start () {
 }
 
 ```
+
+陀螺儀 CameraGyro.cs
+=================
+
+```C#
+void Start () {
+	// 啟動陀螺儀裝置
+	Input.gyro.enabled = true;
+}
+	
+void Update () {
+	// 目標攝影機依照陀螺儀旋轉
+        transform.Rotate(0, -Input.gyro.rotationRateUnbiased.y, 0);
+ }
+
+```
+
+相機追蹤 CameraTrack.cs
+=================
+
+```C#
+
+//vuforia 5.6 影像停止追蹤方法
+TrackerManager.Instance.GetTracker<ImageTracker>().Stop();
+TrackerManager.Instance.GetTracker<ImageTracker>().Start();
+
+TrackerManager.Instance.GetTracker(Tracker.Type.IMAGE_TRACKER).Stop();
+TrackerManager.Instance.GetTracker(Tracker.Type.IMAGE_TRACKER).Start();
+
+mTrackableBehaviour.UnregisterTrackableEventHandler(this);
+mTrackableBehaviour.RegisterTrackableEventHandler(this);
+	
+// vuforia 2017.2 影像停止追蹤方法
+TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
+TrackerManager.Instance.GetTracker<ObjectTracker>().Start();
+
+```
