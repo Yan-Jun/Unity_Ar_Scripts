@@ -125,4 +125,7 @@ mTrackableBehaviour.RegisterTrackableEventHandler(this);
 TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
 TrackerManager.Instance.GetTracker<ObjectTracker>().Start();
 
+// 當前狀態
+TrackerManager.Instance.GetTracker<ObjectTracker>().IsActive
+
 ```
