@@ -111,7 +111,7 @@ void Update () {
 
 ```C#
 
-//vuforia 5.6 影像停止追蹤方法
+//vuforia old version (舊版本)
 TrackerManager.Instance.GetTracker<ImageTracker>().Stop();
 TrackerManager.Instance.GetTracker<ImageTracker>().Start();
 
@@ -121,7 +121,7 @@ TrackerManager.Instance.GetTracker(Tracker.Type.IMAGE_TRACKER).Start();
 mTrackableBehaviour.UnregisterTrackableEventHandler(this);
 mTrackableBehaviour.RegisterTrackableEventHandler(this);
 	
-// vuforia 2017.2 影像停止追蹤方法
+// vuforia new version (新版本)
 TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
 TrackerManager.Instance.GetTracker<ObjectTracker>().Start();
 
