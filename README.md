@@ -64,6 +64,43 @@ private void OnTrackingLost()
 所以在角本內建立一個 IsFinding 的布林變數，可以讓場景的其它物件知道，我的相機是否追蹤中圖片。
 
 
+
+自訂追蹤事件處理器 TrackableEvent.cs
+=================
+如何不要改DefaultTrackableEventHandler.cs 也可以追蹤的方法就是繼承追蹤事件，然後註冊就可以。
+腳本內有提供使用　Net framework　已定義常用的委派型別來呼叫
+```C#
+
+using System;
+using UnityEngine;
+using Vuforia;
+
+public class TrackableEvent : MonoBehaviour, ITrackableEventHandler {
+
+    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
+    {
+        if(newStatus == TrackableBehaviour.Status.DETECTED || 
+            newStatus == TrackableBehaviour.Status.TRACKED || 
+            newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+        {
+            /// If is found to call custom methods...
+        }
+        else
+        {
+            /// If is lost to call custom methods...
+        }
+    }
+
+    void Start () {
+
+        // Register trackable event.
+        GetComponent<TrackableBehaviour>().RegisterTrackableEventHandler(this);
+
+    }
+
+```
+
+
 虛擬按鈕 VirtualBtn.cs
 =================
 ```C#
