@@ -134,6 +134,10 @@ void Start () {
 void Start () {
 	// 啟動陀螺儀裝置
 	Input.gyro.enabled = true;
+	// 補償感測器是指加速度計、磁力計、陀螺儀
+	Input.compensateSensors = true;	
+	// 更新陀螺儀的間格時間
+	Input.gyro.updateInterval = 0.01f;
 }
 	
 void Update () {
@@ -165,4 +169,36 @@ TrackerManager.Instance.GetTracker<ObjectTracker>().Start();
 // 當前狀態
 TrackerManager.Instance.GetTracker<ObjectTracker>().IsActive
 
+```
+
+擴展追蹤 ExtendedTrackableHandler.cs
+=================
+用腳本開關的擴展追蹤方法，若要修改擴展追蹤，需要將追蹤關閉才能修改。
+
+擴展追蹤
+https://library.vuforia.com/articles/Training/Extended-Tracking.html
+
+```C#
+// 追蹤行為物件
+[SerializeField]
+private TrackableBehaviour _trackableBehaviour;
+
+// 開啟擴展追蹤方法
+public void OnEnableExtendeTracking()
+{
+	ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+	tracker.Stop();
+	((ImageTarget)_trackableBehaviour.Trackable).StartExtendedTracking();
+	tracker.Start();
+}
+
+// 關閉擴展追蹤方法
+public void OnDisableExtendeTracking()
+{
+
+	ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+	tracker.Stop();
+	((ImageTarget)_trackableBehaviour.Trackable).StopExtendedTracking();
+	tracker.Start();
+}
 ```
