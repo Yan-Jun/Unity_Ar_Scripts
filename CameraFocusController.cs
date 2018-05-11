@@ -9,9 +9,6 @@ public class CameraFocusController : MonoBehaviour {
 
     void Start()
     {
-        // Save player prefs focus mode.
-        FocusMode = (CameraDevice.FocusMode)PlayerPrefs.GetInt(TT_Manager.KEY_FOCUSMODE, (int)CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
-
         var vuforia = VuforiaARController.Instance;
         vuforia.RegisterVuforiaStartedCallback(OnVuforiaStarted);
         vuforia.RegisterOnPauseCallback(OnPaused);
