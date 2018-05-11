@@ -2,7 +2,7 @@
 using UnityEngine;
 using Vuforia;
 
-public class ExtrndedTrackableHandler : MonoBehaviour
+public class ExtendedTrackableHandler : MonoBehaviour
 {
     [SerializeField]
     private TrackableBehaviour _trackableBehaviour;
