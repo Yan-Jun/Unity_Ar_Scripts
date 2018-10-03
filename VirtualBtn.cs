@@ -25,7 +25,7 @@ public class VirtualBtn : MonoBehaviour, IVirtualButtonEventHandler {
     /// 按下事件
     /// </summary>
     /// <param name="vb"></param>
-    public void OnButtonPressed(VirtualButtonAbstractBehaviour vb)
+    public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
         //throw new NotImplementedException();
         Debug.Log("Pressed");
@@ -38,7 +38,7 @@ public class VirtualBtn : MonoBehaviour, IVirtualButtonEventHandler {
     /// 放開事件
     /// </summary>
     /// <param name="vb"></param>
-    public void OnButtonReleased(VirtualButtonAbstractBehaviour vb)
+    public void OnButtonReleased(VirtualButtonBehaviour vb)
     {
         //throw new NotImplementedException();
         Debug.Log("Released");
