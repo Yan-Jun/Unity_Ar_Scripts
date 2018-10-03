@@ -191,6 +191,14 @@ https://library.vuforia.com/articles/Training/Extended-Tracking.html
 [SerializeField]
 private TrackableBehaviour _trackableBehaviour;
 
+// 擴展追蹤測試
+private void Update()
+{
+	// Test
+	if (Input.GetKeyDown(KeyCode.F2)) OnEnableExtendeTracking();
+	else if (Input.GetKeyDown(KeyCode.F3)) OnDisableExtendeTracking();
+}
+
 // 開啟擴展追蹤方法
 public void OnEnableExtendeTracking()
 {
