@@ -7,9 +7,11 @@ public class ExtendedTrackableHandler : MonoBehaviour
     [SerializeField]
     private TrackableBehaviour _trackableBehaviour;
 
-    private void Start()
+    private void Update()
     {
-
+        // Test
+        if (Input.GetKeyDown(KeyCode.F2)) OnEnableExtendeTracking();
+        else if (Input.GetKeyDown(KeyCode.F3)) OnDisableExtendeTracking();
     }
 
     public void OnEnableExtendeTracking()
