@@ -117,13 +117,13 @@ public class TrackableEvent : MonoBehaviour, ITrackableEventHandler {
 public GameObject _vButton;
 
 // 按下事件
-public void OnButtonPressed(VirtualButtonAbstractBehaviour vb)
+public void OnButtonPressed(VirtualButtonBehaviour vb)
 {
 	Debug.Log("Pressed");
 }
 
 // 放開事件
-public void OnButtonReleased(VirtualButtonAbstractBehaviour vb)
+public void OnButtonReleased(VirtualButtonBehaviour vb)
 {
 	Debug.Log("Released");
 }
